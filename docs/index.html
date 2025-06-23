@@ -16,27 +16,36 @@
       justify-content: center;
       min-height: 100vh;
       text-align: center;
+      position: relative;
+      overflow-x: hidden;
     }
 
-    header {
-      padding: 40px 20px;
+    .logo-container {
+      position: relative;
+      margin-top: 80px;
     }
 
     img.logo {
-      max-width: 180px;
+      max-width: 160px;
       height: auto;
-      margin-bottom: 20px;
+      margin-bottom: -40px; /* pulls text up over transparent space */
+      z-index: 1;
+      position: relative;
     }
 
     h1 {
-      font-size: 2.5rem;
-      margin: 0 0 10px;
+      font-size: 2.6rem;
+      margin: 10px 0 10px;
+      position: relative;
+      z-index: 2;
     }
 
     p.tagline {
       font-size: 1.2rem;
-      color: #aaa;
+      color: #ccc;
       margin-bottom: 30px;
+      z-index: 2;
+      position: relative;
     }
 
     a.button {
@@ -47,6 +56,8 @@
       border-radius: 8px;
       font-weight: bold;
       transition: 0.2s ease;
+      z-index: 2;
+      position: relative;
     }
 
     a.button:hover {
@@ -59,16 +70,23 @@
       font-size: 0.8rem;
       color: #555;
     }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      p.tagline { font-size: 1rem; }
+      img.logo { max-width: 120px; }
+    }
   </style>
 </head>
 <body>
 
-  <header>
+  <div class="logo-container">
     <img src="./logo.png" alt="KWAM2 Logo" class="logo" />
-    <h1>Welcome to KWAM2</h1>
-    <p class="tagline">Here to help build the future?</p>
-    <a href="/apply-for-head-of-engineering/" class="button">Apply Now</a>
-  </header>
+  </div>
+
+  <h1>Welcome to KWAM2</h1>
+  <p class="tagline">Here to help build the future?</p>
+  <a href="/apply-for-head-of-engineering/" class="button">Apply Now</a>
 
   <footer>
     &copy; 2025 KWAM2. All rights reserved.
